@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HelloShader
-  m_Shader: {fileID: 4800000, guid: 1b8dca3e41c30f74394fd18c22312d10, type: 3}
+  m_Shader: {fileID: 4800000, guid: e08261b8d83e54c44b4d8b8b7bf7a889, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -88,9 +88,11 @@ Material:
     - _MySliderValue: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimPower: 0.61
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _StripeWidth: 10
     - _UVSec: 0
     - _ZWrite: 1
     - _myFloat: 0.5
@@ -100,6 +102,7 @@ Material:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.091, g: 0, b: 0.68275833, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0.35751158, g: 0.735849, b: 0.37816176, a: 0}
     - _myColor: {r: 0.8301887, g: 0.019579919, b: 0.019579919, a: 1}
     - _myColour: {r: 0.048460312, g: 0.17559496, b: 0.9339623, a: 1}
     - _myEmission: {r: 0, g: 0, b: 0, a: 1}
