@@ -1,4 +1,4 @@
-﻿Shader "Holistic/BasicBlinn" {
+﻿Shader "Holistic/BasicP" {
 Properties{
 		_Colour("Colour", Color) = (1,1,1,1)
 		_SpecColor("Colour", Color) = (1,1,1,1)
