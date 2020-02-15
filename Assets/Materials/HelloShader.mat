@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HelloShader
-  m_Shader: {fileID: 4800000, guid: f159cd633e6061f49843b30641357d41, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d6eb0360d2e62094e9c031c16cdd2828, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -48,11 +48,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicTex:
-        m_Texture: {fileID: 2800000, guid: 924b6d1a0b885d2409cf46cff4c46eeb, type: 3}
+        m_Texture: {fileID: 2800000, guid: d6eb0360d2e62094e9c031c16cdd2828, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: eaa029617980d8a439c5a17d77cfaa03, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -61,6 +61,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _RampTex:
         m_Texture: {fileID: 2800000, guid: cb7ecd77d47f16544b799a1042c5b5d1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _myBump:
@@ -89,6 +93,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Emiss: 0.91
+    - _Gloss: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -99,6 +104,7 @@ Material:
     - _Parallax: 0.02
     - _RimPower: 0.61
     - _SmoothnessTextureChannel: 0
+    - _Spec: 0.5
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _StripeWidth: 10
@@ -109,7 +115,7 @@ Material:
     - _mySlider: 1
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.091, g: 0, b: 0.68275833, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour: {r: 0.8962264, g: 0.40161088, b: 0.40161088, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.35751158, g: 0.735849, b: 0.37816176, a: 0}
