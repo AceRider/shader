@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RedSphere
-  m_Shader: {fileID: 4800000, guid: f60b9e2459221e148b86af7f86e4c1ad, type: 3}
+  m_Shader: {fileID: 4800000, guid: 602b026a19ad1d444869c2e8f8a9f457, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
