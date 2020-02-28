@@ -48,6 +48,48 @@
             float _Steps;
             float _SunDir;
             sampler2D _CameraDepthTexture;
+            
+            #define MARCH(steps, noiseMap, cameraPos, viewDir, bgcol, sum, depth, t) { \
+                for (int i = 0; i < steps  + 1; i++) \
+                { \
+                    if(t > depth) \
+                        break; \
+                    float3 pos = cameraPos + t * viewDir; \
+                    if (pos.y < _MinHeight || pos.y > _MaxHeight || sum.a > 0.99) \
+                    {\
+                        t += max(0.1, 0.02*t); \
+                        continue; \
+                    }\
+                    \
+                    float density = noiseMap(pos); \
+                    if (density > 0.01) \
+                    { \
+                        float diffuse = clamp((density - noiseMap(pos + 0.3 * _SunDir)) / 0.6, 0.0, 1.0);\
+                        sum = integrate(sum, diffuse, density, bgcol, t); \
+                    } \
+                    t += max(0.1, 0.02 * t); \
+                } \
+            } 
+
+            #define NOISEPROC(N, P) 1.75 * N * saturate((_MaxHeight - P.y)/_FadeDist)
+
+            float map1(float3 q)
+            {
+                float3 p = q;
+                float f;
+                f = 0.5 * noise3d(q);
+                return NOISEPROC(f, p);
+            }
+
+            fixed4 raymarch(float3 cameraPos, float3 viewDir, fixed4 bgcol, float depth)
+            {
+                fixed4 col = fixed4(0, 0, 0, 0);
+                float ct = 0;
+
+                MARCH(_Steps, map1, cameraPos, viewDir, bgcol, col, depth, ct);
+
+                return clamp(col, 0.0, 1.0);
+            }
 
             v2f vert (appdata v)
             {
@@ -59,10 +101,14 @@
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
-        
-                return fixed4(1,1,1,1);
+                float depth = 1;
+                depth *= length(i.view);
+                fixed4 col = fixed4(1, 1, 1, 0);
+                fixed4 clouds raymarch(_WorldSpaceCameraPos, normalize(i.view)* _StepScale, col, depth);
+                fixed3 mixedCol = col * (1.0 - clouds.a) + clouds.rgb;
+                return fixed4(mixedCol, clouds.a);
             }
             ENDCG
         }

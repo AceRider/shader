@@ -1,0 +1,21 @@
+            #define MARCH(steps, noiseMap, cameraPos, viewDir, bgcol, sum, depth, t) { \
+                for (int i = 0; i < steps  + 1; i++) \
+                { \
+                    if(t > depth) \
+                        break; \
+                    float3 pos = cameraPos + t * viewDir; \
+                    if (pos.y < _MinHeight || pos.y > _MaxHeight || sum.a > 0.99) \
+                    {\
+                        t += max(0.1, 0.02*t); \
+                        continue; \
+                    }\
+                    \
+                    float density = noiseMap(pos); \
+                    if (density > 0.01) \
+                    { \
+                        float diffuse = clamp((density - noiseMap(pos + 0.3 * _SunDir)) / 0.6, 0.0, 1.0);\
+                        sum = integrate(sum, diffuse, density, bgcol, t); \
+                    } \
+                    t += max(0.1, 0.02 * t); \
+                } \
+            } 
