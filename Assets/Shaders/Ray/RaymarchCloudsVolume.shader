@@ -49,6 +49,21 @@
             float _SunDir;
             sampler2D _CameraDepthTexture;
             
+            float random(float3 value, float3 dotDir)
+            {
+                float3 smallV = sin(value);
+                float random = dot(smallV, dorDir);
+                random = frac(sin(random) * 123574.43212);
+                return random;
+            }
+
+            float3 random3d(float3 value)
+            {
+                return float3(random(value, float3(12.898, 68.54, 37.7298)),
+                    random(value, float3(39.898, 26.54, 85.7238)),
+                    random(value, float3(76.898, 12.54, 8.6788)));
+            }
+
             #define MARCH(steps, noiseMap, cameraPos, viewDir, bgcol, sum, depth, t) { \
                 for (int i = 0; i < steps  + 1; i++) \
                 { \
